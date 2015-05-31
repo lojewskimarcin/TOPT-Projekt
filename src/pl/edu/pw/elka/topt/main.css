@@ -1,0 +1,62 @@
+.leftPane {
+    -fx-pref-width: 300px;
+    -fx-background-color: #dadeec;
+    -fx-padding: 10px;
+    -fx-font-size: 1.2em;
+    -fx-alignment: top-center;
+}
+
+.leftPane > .mainLabel {
+    -fx-font-weight: bold;
+    -fx-padding: 0 5px 15px 0;
+}
+
+.leftPane > .label {
+    -fx-label-padding: 0 10px;
+    -fx-text-alignment: center;
+}
+
+.leftOptions {
+    -fx-alignment: top-left;
+}
+
+.leftOptions > .sliderPane {
+    -fx-alignment: center;
+}
+
+.sliderPane > .slider {
+    -fx-pref-width: 245px;
+    -fx-padding: 0 0 15px 0;
+}
+
+.sliderPane > .value {
+    -fx-pref-width: 50px;
+    -fx-padding: 0 5px 15px 0;
+}
+
+.leftOptions > .radioButton {
+    -fx-padding: 0 15px;
+}
+
+.leftPane > .buttonPane {
+    -fx-vgap: 10px;
+    -fx-spacing: 5px;
+}
+
+.buttonPane > .button {
+    -fx-pref-width: 140px;
+}
+
+.axis {
+    -fx-font-size: 1.5em;
+    -fx-padding: 10px;
+}
+
+.chart-title {
+    -fx-font-size: 1.5em;
+    -fx-padding: 5px;
+}
+
+#lineChart {
+    -fx-padding: 15px;
+}

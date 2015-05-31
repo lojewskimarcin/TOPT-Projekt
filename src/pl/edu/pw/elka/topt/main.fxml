@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="pl.edu.pw.elka.topt.controller.GenerateController">
+    <stylesheets>
+        <URL value="@main.css"/>
+    </stylesheets>
+    <left>
+        <BorderPane>
+            <center>
+                <VBox BorderPane.alignment="CENTER" styleClass="leftPane">
+                    <Label text="Wybierz parametry:" styleClass="mainLabel"/>
+                    <VBox styleClass="leftOptions">
+                        <Label styleClass="label" text="Odległość symboli:"/>
+
+                        <HBox styleClass="sliderPane">
+                            <Slider styleClass="slider" fx:id="distanceSlider" max="3" min="0.3" value="1"/>
+                            <Label fx:id="distanceLabel" styleClass="value"/>
+                        </HBox>
+
+                        <Label styleClass="label" text="Minimalna moc zakłóceń:"/>
+                        <HBox styleClass="sliderPane">
+                            <Slider fx:id="minSigmaSlider" max="1.9" min="0.1" value="0.3"/>
+                            <Label fx:id="minSigmaLabel" styleClass="value"/>
+                        </HBox>
+
+                        <Label styleClass="label" text="Maksymalna moc zakłóceń:"/>
+                        <HBox styleClass="sliderPane">
+                            <Slider fx:id="maxSigmaSlider" max="2" min="0.2" value="1"/>
+                            <Label fx:id="maxSigmaLabel" styleClass="value"/>
+                        </HBox>
+
+                        <Label styleClass="label" text="Modulacja:"/>
+                        <fx:define>
+                            <ToggleGroup fx:id="modulationToggleGroup"/>
+                        </fx:define>
+                        <RadioButton styleClass="radioButton" fx:id="qam4" text="4-QAM"
+                                     toggleGroup="$modulationToggleGroup"/>
+                        <RadioButton styleClass="radioButton" fx:id="qam16" text="16-QAM"
+                                     toggleGroup="$modulationToggleGroup"/>
+                        <RadioButton styleClass="radioButton" fx:id="qam64" text="64-QAM"
+                                     toggleGroup="$modulationToggleGroup"
+                                     selected="true"/>
+                        <RadioButton styleClass="radioButton" fx:id="qam256" text="256-QAM"
+                                     toggleGroup="$modulationToggleGroup"/>
+                    </VBox>
+                </VBox>
+            </center>
+            <bottom>
+                <VBox BorderPane.alignment="CENTER" styleClass="leftPane">
+                    <HBox styleClass="buttonPane">
+                        <Button fx:id="generateButton" styleClass="button" text="Generuj" onAction="#generate"/>
+                        <Button styleClass="button" text="Wyczyść" onAction="#clear"/>
+                    </HBox>
+                </VBox>
+            </bottom>
+        </BorderPane>
+    </left>
+    <center>
+        <LineChart xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+                   title="Wykres zależności elementowej stopy błędów BER od parametru MER"
+                   fx:id="lineChart" createSymbols="false">
+            <xAxis>
+                <NumberAxis side="BOTTOM" label="log(MER)" forceZeroInRange="false"/>
+            </xAxis>
+            <yAxis>
+                <NumberAxis side="LEFT" label="log(BER)" forceZeroInRange="false"/>
+            </yAxis>
+        </LineChart>
+    </center>
+</BorderPane>

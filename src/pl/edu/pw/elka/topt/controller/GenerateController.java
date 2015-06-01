@@ -113,11 +113,11 @@ public class GenerateController {
                             distanceLabel.getText(), minSigmaLabel.getText(), maxSigmaLabel.getText(),
                             modulationString));
                     for (Map.Entry<Double, Double> result : results.entrySet()) {
-                        System.out.println(String.format("MER[%f], BER[%f], log(MER)[%f], log(BER)[%f]",
-                                result.getKey(), result.getValue(), Math.log10(result.getKey()),
-                                Math.log10(result.getValue())));
-                        series.getData().add(new LineChart.Data<>(Math.log10(result.getKey()),
-                                Math.log10(result.getValue())));
+                        System.out.println(String.format("MER[%f], BER[%f], MER[%f]db, BER[%f]db",
+                                result.getKey(), result.getValue(), 10 * Math.log10(result.getKey()),
+                                10 * Math.log10(result.getValue())));
+                        series.getData().add(new LineChart.Data<>(10 * Math.log10(result.getKey()),
+                                10 * Math.log10(result.getValue())));
                     }
                     lineChart.getData().add(series);
                     generateButton.setDisable(false);

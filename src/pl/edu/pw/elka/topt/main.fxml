@@ -25,7 +25,7 @@
 
                         <Label styleClass="label" text="Minimalna moc zakłóceń:"/>
                         <HBox styleClass="sliderPane">
-                            <Slider fx:id="minSigmaSlider" max="1.9" min="0.1" value="0.3"/>
+                            <Slider fx:id="minSigmaSlider" max="1.9" min="0.08" value="0.3"/>
                             <Label fx:id="minSigmaLabel" styleClass="value"/>
                         </HBox>
 
@@ -66,10 +66,10 @@
                    title="Wykres zależności elementowej stopy błędów BER od parametru MER"
                    fx:id="lineChart" createSymbols="false">
             <xAxis>
-                <NumberAxis side="BOTTOM" label="log(MER)" forceZeroInRange="false"/>
+                <NumberAxis side="BOTTOM" label="MER [db]" forceZeroInRange="false"/>
             </xAxis>
             <yAxis>
-                <NumberAxis side="LEFT" label="log(BER)" forceZeroInRange="false"/>
+                <NumberAxis side="LEFT" label="BER [db]" forceZeroInRange="false"/>
             </yAxis>
         </LineChart>
     </center>
